@@ -1,0 +1,35 @@
+package ejPilaEst;
+
+public class Estudiante {
+    private String nombre;
+    private ColaCircular colaPracticas;
+    
+    public Estudiante(String nombre, int capacidadPracticas) {
+        this.nombre = nombre;
+        this.colaPracticas = new ColaCircular(capacidadPracticas);
+    }
+    
+    public void agregarPractica(Practica practica) {
+        colaPracticas.agregarPractica(practica);
+    }
+    
+    public int cantidadPracticas() {
+        return colaPracticas.cantidadPracticas();
+    }
+    
+    public Practica[] obtenerPracticas() {
+        return colaPracticas.obtenerTodasPracticas();
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public ColaCircular getColaPracticas() {
+        return colaPracticas;
+    }
+    
+    public double obtenerNotaMasAlta() {
+        return colaPracticas.obtenerNotaMasAlta();
+    }
+}

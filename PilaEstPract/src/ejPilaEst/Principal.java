@@ -1,0 +1,44 @@
+package ejPilaEst;
+
+import java.util.Map;
+
+public class Principal {
+    public static void main(String[] args) {
+        System.out.println("Estudiante: Carlos Daniel Quispe Huanca");
+        System.out.println("C.I: 12604581");
+    	ColaCircularPrac practica = new ColaCircularPrac();
+        practica.agregarPractica("Juan Perez", "2025-08-15", "Pila Dinámica", 78);
+        practica.agregarPractica("Jose Lopez", "2025-09-20", "Cola Circular", 98);
+        practica.agregarPractica("Ana Montes", "2025-08-16", "Lista Enlazada", 90);
+        practica.agregarPractica("Jose Lopez", "2025-08-22", "Árbol Binario", 50);
+        practica.agregarPractica("Juan Perez", "2025-09-02", "Grafos", 29);
+        practica.agregarPractica("Juan Perez", "2025-09-18", "Recursividad", 35);
+        
+        // a. Mostrar cantidad de prácticas por estudiante
+        System.out.println("\n A. Prácticas por estudiante");
+        Map<String, Integer> practicasPorEstudiante = practica.practicasPorEstudiante();
+        for (Map.Entry<String, Integer> entry : practicasPorEstudiante.entrySet()) {
+            System.out.println("CC " + entry.getKey() + ": " + entry.getValue() + " prácticas");
+        }
+        
+        // b. Mostrar prácticas de un estudiante específico
+        System.out.println("\n B. Mostrar Practicas del Estudiante");
+        practica.mostrarPracticasEstudiante("Juan Perez");
+        
+        // c. Transferir prácticas entre estudiantes
+        System.out.println("\n C. Transferir prácticas");
+        practica.transferirPracticas("Juan Perez", "Ana Montes");
+        
+        // d. Mostrar total de prácticas
+        System.out.println("\n D. Total de prácticas");
+        System.out.println("Total: " + practica.totalPracticas() + " prácticas");
+        
+        // e. Mostrar nota más alta por estudiante
+        System.out.println("\n E. Nota más alta por estudiante");
+        Map<String, Double> notasMasAltas = practica.notasMasAltas();
+        for (Map.Entry<String, Double> entry : notasMasAltas.entrySet()) {
+            System.out.println("CC " + entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+}

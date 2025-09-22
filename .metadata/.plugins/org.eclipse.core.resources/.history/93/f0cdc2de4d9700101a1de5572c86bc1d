@@ -1,0 +1,48 @@
+package ejPilaEst;
+
+import java.util.Map;
+
+public class Principal {
+    public static void main(String[] args) {
+    	ColaCircularPrac practica = new ColaCircularPrac();
+        practica.agregarPractica("Juan Perez", "2024-01-15", "Pila Dinámica", 4.5);
+        practica.agregarPractica("Jose Lopez", "2024-01-20", "Cola Circular", 3.8);
+        practica.agregarPractica("Ana Montes", "2024-01-16", "Lista Enlazada", 4.2);
+        practica.agregarPractica("Jose Lopez", "2024-01-22", "Árbol Binario", 4.7);
+        practica.agregarPractica("Juan Perez ", "2024-01-25", "Grafos", 4.0);
+        practica.agregarPractica("Antonio Iriarte", "2024-01-18", "Recursividad", 3.5);
+        
+        // a. Mostrar cantidad de prácticas por estudiante
+        System.out.println("Prácticas por estudiante");
+        Map<String, Integer> practicasPorEstudiante = practica.practicasPorEstudiante();
+        for (Map.Entry<String, Integer> entry : practicasPorEstudiante.entrySet()) {
+            System.out.println("CC " + entry.getKey() + ": " + entry.getValue() + " prácticas");
+        }
+        
+        // b. Mostrar prácticas de un estudiante específico
+        System.out.println("\n=== Prácticas del estudiante 456 ===");
+        practica.mostrarPracticasEstudiante("Juan Perez");
+        
+        // c. Transferir prácticas entre estudiantes
+        System.out.println("\n=== Transferir prácticas ===");
+        practica.transferirPracticas("Juan Perez", "Ana Montes");
+        
+        // d. Mostrar total de prácticas
+        System.out.println("\n=== Total de prácticas ===");
+        System.out.println("Total: " + practica.totalPracticas() + " prácticas");
+        
+        // e. Mostrar nota más alta por estudiante
+        System.out.println("\n=== Nota más alta por estudiante ===");
+        Map<String, Double> notasMasAltas = practica.notasMasAltas();
+        for (Map.Entry<String, Double> entry : notasMasAltas.entrySet()) {
+            System.out.println("CC " + entry.getKey() + ": " + entry.getValue());
+        }
+        
+        System.out.println("\n=== Estado final después de transferencia ===");
+        practicasPorEstudiante = practica.practicasPorEstudiante();
+        for (Map.Entry<String, Integer> entry : practicasPorEstudiante.entrySet()) {
+            System.out.println("CC " + entry.getKey() + ": " + entry.getValue() + " prácticas");
+        }
+    }
+
+}
